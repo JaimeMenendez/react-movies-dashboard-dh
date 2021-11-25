@@ -5,9 +5,9 @@ export default function ContentRowMovies(props) {
         <>
             <div className="row">
                 {
-                    props.cajas.map((caja, index) => {
+                    props.cajas.map((caja,i) => {
                         return (
-                            <div key={index} className="col-md-4 mb-4">
+                            <div key={i+i+i} className="col-md-4 mb-4">
                                 <div className={`card ${caja.colorDeBorde} shadow h-100 py-2`}>
                                     <div className="card-body">
                                         <div className="row no-gutters align-items-center">
@@ -33,7 +33,7 @@ export default function ContentRowMovies(props) {
 ContentRowMovies.propTypes = {
     cajas: PropTypes.arrayOf(PropTypes.shape({
         titulo: PropTypes.string.isRequired,
-        colorDeBorde: PropTypes.oneOf(['border-left-primary', 'border-left-success', 'border-left-warning']).isRequired,
+        colorDeBorde: PropTypes.oneOf(['border-left-primary', 'border-left-success', 'border-left-warning','border-left-info', 'border-left-secondary','boder-left-danger','boder-left-dark']).isRequired,
         cifra: PropTypes.number.isRequired,
         icono: string.isRequired
     }))

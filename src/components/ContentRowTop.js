@@ -9,7 +9,7 @@ let cajasDePeliculas = [{
     icono: 'fas fa-film'
 }, {
     titulo: 'Total Awards',
-    colorDeBorde: 'border-left-success',
+    colorDeBorde: 'border-left-secondary',
     cifra: 79,
     icono: 'fas fa-award'
 }, {

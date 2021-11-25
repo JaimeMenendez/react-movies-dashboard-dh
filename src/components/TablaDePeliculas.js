@@ -14,11 +14,11 @@ export default function TablaDePeliculas(props) {
                 {props.peliculas.map((pelicula, i) => {
                     return (
                         <tr key={'pelicula' + i}>
-                            <th key={pelicula.titulo + i} scope="row">{pelicula.titulo}</th>
-                            <td key={pelicula.titulo + pelicula.duracion + i}>{pelicula.duracion}</td>
-                            <td key={pelicula.titulo + pelicula.rating + i}>{pelicula.rating}</td>
-                            <td key={pelicula.titulo + pelicula.generos.toString() + i}>
-                                <ul key={pelicula.generos.toString() + i}>
+                            <th scope="row">{pelicula.titulo}</th>
+                            <td>{pelicula.duracion}</td>
+                            <td>{pelicula.rating}</td>
+                            <td>
+                                <ul>
                                     {pelicula.generos.map((genero, i) => {
                                         return (
 
@@ -27,7 +27,7 @@ export default function TablaDePeliculas(props) {
                                     })}
                                 </ul>
                             </td>
-                            <td key={pelicula.premios+i}>{pelicula.premios}</td>
+                            <td>{pelicula.premios}</td>
                         </tr>
                     )
                 })}
