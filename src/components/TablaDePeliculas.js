@@ -1,6 +1,8 @@
+import { v4 as id } from 'uuid';
+
 export default function TablaDePeliculas(props) {
     return (
-        <table class="table table-bordered bg-white m-auto shadow" style={{ maxWidth: '95%' }}>
+        <table className="table table-bordered bg-white m-auto shadow" style={{ maxWidth: '95%' }}>
             <thead>
                 <tr>
                     <th scope="col">Título</th>
@@ -13,18 +15,20 @@ export default function TablaDePeliculas(props) {
             <tbody>
                 {props.peliculas.map((pelicula, i) => {
                     return (
-                        <tr key={i + pelicula.titulo}>
-                            <th scope="row">{pelicula.titulo}</th>
-                            <td>{pelicula.duracion}</td>
-                            <td>{pelicula.rating}</td>
-                            <td>{pelicula.generos.map((genero, i) => {
-                                return (
-                                    <ul>
-                                        <li key={i}>{genero}</li>
-                                    </ul>
-                                )
-                            })}</td>
-                            <td>{pelicula.premios}</td>
+                        <tr key={id()}>
+                            <th key={id()} scope="row">{pelicula.titulo}</th>
+                            <td key={id()}>{pelicula.duracion}</td>
+                            <td key={id()}>{pelicula.rating}</td>
+                            <td key={id()}>
+                                {pelicula.generos.map((genero, i) => {
+                                    return (
+                                        <ul key={id()}>
+                                            <li key={id()}>{genero}</li>
+                                        </ul>
+                                    )
+                                })}
+                            </td>
+                            <td key={id()}>{pelicula.premios}</td>
                         </tr>
                     )
                 })}
