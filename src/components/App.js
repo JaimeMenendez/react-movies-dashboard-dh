@@ -1,5 +1,5 @@
-import Sidebar from "./components/Sidebar";
-import ContentWrapper from "./components/ContentWrapper";
+import Sidebar from "./Sidebar";
+import ContentWrapper from "./ContentWrapper";
 
 function App() {
   return (
