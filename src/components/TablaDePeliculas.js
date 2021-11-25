@@ -1,5 +1,3 @@
-import { v4 as id } from 'uuid';
-
 export default function TablaDePeliculas(props) {
     return (
         <table className="table table-bordered bg-white m-auto shadow" style={{ maxWidth: '95%' }}>
@@ -15,20 +13,21 @@ export default function TablaDePeliculas(props) {
             <tbody>
                 {props.peliculas.map((pelicula, i) => {
                     return (
-                        <tr key={id()}>
-                            <th key={id()} scope="row">{pelicula.titulo}</th>
-                            <td key={id()}>{pelicula.duracion}</td>
-                            <td key={id()}>{pelicula.rating}</td>
-                            <td key={id()}>
-                                {pelicula.generos.map((genero, i) => {
-                                    return (
-                                        <ul key={id()}>
-                                            <li key={id()}>{genero}</li>
-                                        </ul>
-                                    )
-                                })}
+                        <tr key={'pelicula' + i}>
+                            <th key={pelicula.titulo + i} scope="row">{pelicula.titulo}</th>
+                            <td key={pelicula.titulo + pelicula.duracion + i}>{pelicula.duracion}</td>
+                            <td key={pelicula.titulo + pelicula.rating + i}>{pelicula.rating}</td>
+                            <td key={pelicula.titulo + pelicula.generos.toString() + i}>
+                                <ul key={pelicula.generos.toString() + i}>
+                                    {pelicula.generos.map((genero, i) => {
+                                        return (
+
+                                            <li key={genero + i}>{genero}</li>
+                                        )
+                                    })}
+                                </ul>
                             </td>
-                            <td key={id()}>{pelicula.premios}</td>
+                            <td key={pelicula.premios+i}>{pelicula.premios}</td>
                         </tr>
                     )
                 })}
