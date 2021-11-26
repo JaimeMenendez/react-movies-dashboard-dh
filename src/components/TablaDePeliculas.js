@@ -1,6 +1,6 @@
 export default function TablaDePeliculas(props) {
     return (
-        <table className="table table-bordered bg-white m-auto shadow" style={{ maxWidth: '95%' }}>
+        <table className="table table-bordered bg-white shadow" style={{maxWidth: '95%', margin: 'auto', marginBottom: "1rem"}}>
             <thead>
                 <tr>
                     <th scope="col">Título</th>
