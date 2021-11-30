@@ -1,6 +1,6 @@
-export default function TablaDePeliculas(props) {
+export default function Movies(props) {
     return (
-        <table className="table table-bordered bg-white shadow" style={{maxWidth: '95%', margin: 'auto', marginBottom: "1rem"}}>
+        <table className="table table-bordered bg-white shadow" style={{ maxWidth: '95%', margin: 'auto', marginBottom: "1rem" }}>
             <thead>
                 <tr>
                     <th scope="col">Título</th>
@@ -14,20 +14,15 @@ export default function TablaDePeliculas(props) {
                 {props.peliculas.map((pelicula, i) => {
                     return (
                         <tr key={'pelicula' + i}>
-                            <th scope="row">{pelicula.titulo}</th>
-                            <td>{pelicula.duracion}</td>
+                            <th scope="row">{pelicula.title}</th>
+                            <td>{pelicula.length}</td>
                             <td>{pelicula.rating}</td>
                             <td>
                                 <ul>
-                                    {pelicula.generos.map((genero, i) => {
-                                        return (
-
-                                            <li key={genero + i}>{genero}</li>
-                                        )
-                                    })}
+                                   {pelicula.genre && pelicula.genre.name ?  pelicula.genre.name:''}
                                 </ul>
                             </td>
-                            <td>{pelicula.premios}</td>
+                            <td>{pelicula.awards}</td>
                         </tr>
                     )
                 })}

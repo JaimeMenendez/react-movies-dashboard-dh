@@ -1,5 +1,17 @@
+import React, { useEffect, useState } from 'react'
+
 export default function GenresInDb() {
-    return (<>
+    const [genres, setGenres] = useState([])
+
+    useEffect(() => {
+        fetch("http://localhost:3001/api/genres")
+            .then(data => data.json())
+            .then(data => {
+                setGenres(data.data)
+            })
+    }, [])
+
+    return (
         <div className="col-lg-6 mb-4">
             <div className="card shadow mb-4">
                 <div className="card-header py-3">
@@ -7,80 +19,31 @@ export default function GenresInDb() {
                 </div>
                 <div className="card-body">
                     <div className="row">
-                        <div className="col-lg-6 mb-4">
-                            <div className="card bg-dark text-white shadow">
-                                <div className="card-body">
-                                    Acción
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 mb-4">
-                            <div className="card bg-dark text-white shadow">
-                                <div className="card-body">
-                                    Animación
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 mb-4">
-                            <div className="card bg-dark text-white shadow">
-                                <div className="card-body">
-                                    Aventura
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 mb-4">
-                            <div className="card bg-dark text-white shadow">
-                                <div className="card-body">
-                                    Ciencia Ficción
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 mb-4">
-                            <div className="card bg-dark text-white shadow">
-                                <div className="card-body">
-                                    Comedia
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 mb-4">
-                            <div className="card bg-dark text-white shadow">
-                                <div className="card-body">
-                                    Documental
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 mb-4">
-                            <div className="card bg-dark text-white shadow">
-                                <div className="card-body">
-                                    Drama
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 mb-4">
-                            <div className="card bg-dark text-white shadow">
-                                <div className="card-body">
-                                    Fantasia
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 mb-4">
-                            <div className="card bg-dark text-white shadow">
-                                <div className="card-body">
-                                    Infantiles
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 mb-4">
-                            <div className="card bg-dark text-white shadow">
-                                <div className="card-body">
-                                    Musical
-                                </div>
-                            </div>
-                        </div>
-
+                        {
+                            genres.map(genero => {
+                                return (
+                                    <div key={genero.id} className="col-lg-6 mb-4" >
+                                        <div className="card bg-dark text-white shadow">
+                                            <div className="card-body"
+                                                onMouseEnter={toggleBackground}
+                                                onMouseLeave={toggleBackground}
+                                            >
+                                                {genero.name}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
                 </div>
             </div>
-        </div>
-    </>)
+        </div>)
+}
+
+/**
+* @param{MouseEvent} event
+*/
+function toggleBackground(event) {
+    event.target.classList.toggle("bg-secondary")
 }
