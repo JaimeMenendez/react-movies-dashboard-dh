@@ -1,7 +1,6 @@
 import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import {render, fireEvent, act, waitFor, cleanup} from '@testing-library/react'
-import '@testing-library/jest-dom'
 import {server} from "../mocks/browser"
 import {genresData} from "../mocks/handlers";
 import GenresInDb from "./GenresInDb"
