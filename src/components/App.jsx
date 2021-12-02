@@ -1,5 +1,6 @@
 import Sidebar from "./Sidebar";
 import ContentWrapper from "./ContentWrapper";
+import React from 'react'
 
 function App() {
   return (

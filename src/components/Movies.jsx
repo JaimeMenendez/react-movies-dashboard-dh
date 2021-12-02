@@ -1,4 +1,6 @@
-export default function Movies(props) {
+import React from 'react'
+
+function Movies(props) {
     return (
         <table className="table table-bordered bg-white shadow" style={{ maxWidth: '95%', margin: 'auto', marginBottom: "1rem" }}>
             <thead>
@@ -30,3 +32,5 @@ export default function Movies(props) {
         </table>
     )
 }
+
+export default Movies

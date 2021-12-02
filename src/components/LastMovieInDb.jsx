@@ -1,5 +1,7 @@
 import mandalorian_img from '../assets/images/mandalorian.jpg'
-export default function GenresInDb() {
+import React from 'react'
+
+export default function LastMovieInDb() {
     return (<>
         <div className="col-lg-6 mb-4">
             <div className="card shadow mb-4">

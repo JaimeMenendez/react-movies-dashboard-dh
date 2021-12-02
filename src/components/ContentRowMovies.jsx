@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import React from 'react'
 function ContentRowMovies(props) {
     return (
         <div className="row">
@@ -14,7 +15,7 @@ function ContentRowMovies(props) {
                                             <div className="h5 mb-0 font-weight-bold text-gray-800">{caja.cifra}</div>
                                         </div>
                                         <div className="col-auto">
-                                            <i className={`fas ${caja.icono} fa-2x text-gray-300`}></i>
+                                            <i className={`fas ${caja.icono} fa-2x text-gray-300`}/>
                                         </div>
                                     </div>
                                 </div>

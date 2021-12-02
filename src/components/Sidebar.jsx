@@ -1,4 +1,5 @@
 import logo_DH from '../assets/images/logo-DH.png'
+import React from 'react'
 
 export default function Sidebar() {
     return (

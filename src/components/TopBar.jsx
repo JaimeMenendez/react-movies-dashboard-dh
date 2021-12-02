@@ -1,4 +1,5 @@
 import profile_pic from '../assets/images/jordan-walke.png'
+import React from 'react'
 
 export default function TopBar() {
     return (

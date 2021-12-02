@@ -1,11 +1,15 @@
 import GenresInDb from "./GenresInDb";
 import LastMovieInDb from "./LastMovieInDb";
 import ContentRowMovies from "./ContentRowMovies";
+import PropTypes from 'prop-types'; // ES6
+import React from 'react'
 
 
-export default function ContentRowTop(props) {
-    console.log(props)
 
+/**
+ * @param {{peliculas: array, actores: array}} props 
+ */
+function ContentRowTop(props) {
     let cajasDePeliculas = [{
         titulo: 'Movies in Database',
         colorDeBorde: 'border-left-primary',
@@ -38,3 +42,23 @@ export default function ContentRowTop(props) {
         </div>
     )
 }
+
+ContentRowTop.propTypes = {
+    peliculas: PropTypes.arrayOf(PropTypes.shape({
+        title: PropTypes.string,
+        rating: PropTypes.string,
+        length: PropTypes.number,
+        awards: PropTypes.number,
+        genre: PropTypes.shape({
+            name: PropTypes.string
+        })
+    })),
+    actores: PropTypes.array
+}
+
+ContentRowTop.defaultProps = {
+    peliculas: [],
+    actores: []
+}
+
+export default ContentRowTop;
