@@ -2,7 +2,7 @@ import React from 'react'
 import {useFetchData} from "../Hooks/UseFetchData";
 
 function GenresInDb() {
-    const [genres] = useFetchData("/api/genres",[])
+    const [genres,loading] = useFetchData("/api/genres",[])
 
     return (
         <div className="col-lg-6 mb-4">

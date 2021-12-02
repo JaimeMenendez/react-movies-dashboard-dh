@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 
 export function useFetchData(endpoint, initialState = []) {
     const [state, setState] = useState(initialState)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         const cancelablePromise = makeCancelable(fetch(endpoint))
@@ -9,13 +10,14 @@ export function useFetchData(endpoint, initialState = []) {
             .then(data => data.json())
             .then(data => {
                 setState(data.data)
+                setLoading(false)
             })
             .catch(error => {})
 
         return () => cancelablePromise.cancel()
     }, [endpoint])
 
-    return [state, setState]
+    return [state, loading]
 }
 
 // https://reactjs.org/blog/2015/12/16/ismounted-antipattern.html

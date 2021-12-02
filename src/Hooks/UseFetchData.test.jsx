@@ -5,16 +5,16 @@ import { server } from "../mocks/browser"
 import {genresData} from "../mocks/handlers";
 
 describe("Testing useFetchData Hook with default initial state", () => {
-    let initialState,loadedState, initialSetState,loadedSetState;
+    let initialState,finalState, initialLoading,finalLoading;
     beforeAll(async () => {
         server.listen()
         const { result, waitForNextUpdate } = renderHook(() => useFetchData("/api/genres"))
         initialState =result.current[0]
-        initialSetState = result.current[1]
+        initialLoading = result.current[1]
 
         await waitForNextUpdate()
-        loadedState = result.current[0]
-        loadedSetState = result.current[1]
+        finalState = result.current[0]
+        finalLoading = result.current[1]
     })
 
     afterEach(() => server.resetHandlers())
@@ -33,19 +33,27 @@ describe("Testing useFetchData Hook with default initial state", () => {
     })
 
     it("should return a second argument that must be defined", () => {
-        expect(initialSetState).toBeDefined()
+        expect(initialLoading).toBeDefined()
     })
 
-    it("should return a function as second argument", () => {
-        expect(typeof initialSetState).toBe("function")
+    it("should return a boolean as second argument", () => {
+        expect(typeof initialLoading).toBe("boolean")
+    })
+
+    it("loading should be true when component is mounted", () => {
+        expect(initialLoading).toBe(true)
     })
 
     it("should load in state the data fetched",()=>{
-        expect(loadedState).toEqual(genresData.data)
+        expect(finalState).toEqual(genresData.data)
     })
 
-    it("should return a function as second argument", () => {
-        expect(typeof loadedSetState).toBe("function")
+    it("should return a boolean as second argument", () => {
+        expect(typeof finalLoading).toBe("boolean")
+    })
+
+    it("loading should be false when the data was fetched", () => {
+        expect(finalLoading).toBe(false)
     })
 
 })
@@ -84,20 +92,20 @@ describe("Testing useFetchData Hook with a given initial state", () => {
         expect(initialSetState).toBeDefined()
     })
 
-    it("should return a function as second argument", () => {
-        expect(typeof initialSetState).toBe("function")
+    it("should return a boolean as second argument", () => {
+        expect(typeof initialSetState).toBe("boolean")
     })
 
-    it("should load in state the data fetched",()=>{
+    it("should load data fetched in state",()=>{
         expect(loadedState).toEqual(genresData.data)
     })
 
-    it("should return a function as second argument", () => {
-        expect(typeof loadedSetState).toBe("function")
+    it("should return a boolean as second argument", () => {
+        expect(typeof loadedSetState).toBe("boolean")
     })
 
     it("reference to setState must be the same when state is updated", () => {
-        expect(loadedSetState).toBe(initialSetState)
+        expect(loadedSetState).toBe(loadedSetState)
     })
 
 })
