@@ -3,9 +3,6 @@ import LastMovieInDb from "./LastMovieInDb";
 import ContentRowMovies from "./ContentRowMovies";
 import PropTypes from 'prop-types'; // ES6
 import React from 'react'
-
-
-
 /**
  * @param {{peliculas: array, actores: array}} props 
  */
@@ -37,7 +34,7 @@ function ContentRowTop(props) {
 
             <div className="row">
                 <LastMovieInDb />
-                <GenresInDb />
+                <GenresInDb genres={props.genres}/>
             </div>
         </div>
     )

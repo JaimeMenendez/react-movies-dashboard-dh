@@ -3,21 +3,16 @@ import ContentRowTop from './ContentRowTop';
 import TopBar from './TopBar';
 import Movies from "./Movies";
 import React from "react"
-import {useFetchData} from "../Hooks/UseFetchData";
 
 
-export default function ContentWrapper() {
-    const [movies] = useFetchData("/api/movies",[])
+export default function ContentWrapper(props) {
 
-    const [actors] = useFetchData("/api/actors",[])
     return (
-        <div id="content-wrapper" className="d-flex flex-column">
-            <div id="content">
+        <div id="container">
                 <TopBar />
-                <ContentRowTop peliculas={movies} actores={actors} />
-                <Movies peliculas={movies} />
+                <ContentRowTop genres={props.genres} peliculas={props.movies} actores={props.actors} />
+                <Movies movies={props.movies} />
                 <Footer />
-            </div>
         </div>
     )
 }

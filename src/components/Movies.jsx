@@ -2,7 +2,7 @@ import React from 'react'
 
 function Movies(props) {
     return (
-        <table className="table table-bordered bg-white shadow" style={{ maxWidth: '95%', margin: 'auto', marginBottom: "1rem" }}>
+        <table className="table table-bordered bg-white shadow mt-3 ml-4 mr-3" style={{ maxWidth: '95%', margin: 'auto', marginBottom: "1rem" }}>
             <thead>
                 <tr>
                     <th scope="col">Título</th>
@@ -13,18 +13,18 @@ function Movies(props) {
                 </tr>
             </thead>
             <tbody>
-                {props.peliculas.map((pelicula, i) => {
+                {props.movies.map((movie, i) => {
                     return (
-                        <tr key={'pelicula' + i}>
-                            <th scope="row">{pelicula.title}</th>
-                            <td>{pelicula.length}</td>
-                            <td>{pelicula.rating}</td>
+                        <tr key={'movie' + i}>
+                            <th scope="row">{movie.title}</th>
+                            <td>{movie.length}</td>
+                            <td>{movie.rating}</td>
                             <td>
                                 <ul>
-                                   {pelicula.genre && pelicula.genre.name ?  pelicula.genre.name:''}
+                                   {movie.genre && movie.genre.name ?  movie.genre.name:''}
                                 </ul>
                             </td>
-                            <td>{pelicula.awards}</td>
+                            <td>{movie.awards}</td>
                         </tr>
                     )
                 })}
