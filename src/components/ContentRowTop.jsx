@@ -32,7 +32,7 @@ function ContentRowTop(props) {
 
             <ContentRowMovies cajas={cajasDePeliculas} />
 
-            <div className="row">
+            <div className="row">np
                 <LastMovieInDb />
                 <GenresInDb genres={props.genres}/>
             </div>

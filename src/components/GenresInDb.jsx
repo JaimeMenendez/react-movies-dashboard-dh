@@ -1,6 +1,7 @@
 import React from 'react'
 import {useFetchData} from "../Hooks/UseFetchData";
 import {Link} from "react-router-dom";
+import PropTypes from "prop-types";
 
 function GenresInDb(props) {
     return (
@@ -37,6 +38,10 @@ function GenresInDb(props) {
  */
 function toggleBackground(event) {
     event.target.classList.toggle("bg-secondary")
+}
+
+GenresInDb.defaultProps = {
+    genres : []
 }
 
 
